@@ -9,12 +9,4 @@ import {AngularFire} from 'angularfire2';
 export class AppComponent {
   constructor(public af: AngularFire) {
   }
-
-  login() {
-    this.af.auth.login();
-  }
-
-  logout() {
-    this.af.auth.logout();
-  }
 }
