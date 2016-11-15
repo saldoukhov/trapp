@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {AngularFire} from 'angularfire2';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {Translation} from './model/translation';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,12 @@ import {AngularFire} from 'angularfire2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  items: FirebaseListObservable<Translation[]>;
+
   constructor(public af: AngularFire) {
+    this.items = af.database
+      .list('/translations');
   }
+
 }
