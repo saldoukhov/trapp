@@ -1,4 +1,5 @@
 <keeper-navbar></keeper-navbar>
+<h1 *ngIf="noPermissions">You do not have permissions to access the data.</h1>
 <md-list>
   <md-list-item
     *ngFor="let item of items | async">

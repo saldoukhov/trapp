@@ -1,6 +1,9 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    ".read": "false",
+    ".write": "false",
+    "translations": {
+      ".read": "root.child('users').hasChild(auth.uid)"
+    }
   }
 }
