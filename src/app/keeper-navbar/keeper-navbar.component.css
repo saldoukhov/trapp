@@ -2,3 +2,15 @@
   width: 100%;
   align-items: center;
 }
+
+.auth-info {
+  align-items: center;
+}
+
+.email {
+  margin-right: 1rem;
+}
+
+img {
+  margin-top: -10px;
+}

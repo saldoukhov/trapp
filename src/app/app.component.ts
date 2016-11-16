@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {AngularFire} from 'angularfire2';
 import {Translation} from './model/translation';
+import {Observable} from 'rxjs';
+
+import "rxjs/add/operator/take";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +12,7 @@ import {Translation} from './model/translation';
 })
 export class AppComponent {
 
-  items: FirebaseListObservable<Translation[]>;
+  items: Observable<Translation[]>;
   private noPermissions: boolean = false;
 
   constructor(public af: AngularFire) {
@@ -22,14 +25,12 @@ export class AppComponent {
     });
 
     this.items = af.database
-      .list('/translations');
-
-    this.items.subscribe(x => {
-      },
-      e => {
+      .list('/translations')
+      .catch(e => {
         if (e.toString().indexOf('permission denied')) {
           this.noPermissions = !!this.items;
         }
+        return this.items.take(0);
       });
   }
 

@@ -2,11 +2,19 @@
   color="primary">
   <div class="row between-xs tb-content">
     <div class="box">Translations</div>
-    <button
-      class="box"
-      md-raised-button
-      color="warn"
-      (click)="login()">{{loginText}}
-    </button>
+    <div class="row auth-info">
+      <md-list *ngIf="authState">
+        <md-list-item>
+          <img md-list-avatar src="{{ authState?.google.photoURL }}">
+        </md-list-item>
+      </md-list>
+      <div class="email">{{ authState?.google.email }}</div>
+      <button
+        class="box"
+        md-raised-button
+        color="warn"
+        (click)="login()">{{loginText}}
+      </button>
+    </div>
   </div>
 </md-toolbar>

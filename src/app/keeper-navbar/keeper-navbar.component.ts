@@ -12,7 +12,12 @@ export class KeeperNavbarComponent implements OnInit {
   loginText: string;
 
   constructor(public af: AngularFire) {
-    af.auth.subscribe(x => {
+    this.af.auth.subscribe(x => {
+      // workaround for google auth not being entirely populated
+      if (x && !x.google['email']) {
+        location.reload();
+        return;
+      }
       this.authState = x;
       this.loginText = this.authState ? 'Logout' : 'Login';
     });
