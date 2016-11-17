@@ -7,6 +7,7 @@ import {MaterialModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
 import { KeeperNavbarComponent } from './keeper-navbar/keeper-navbar.component';
+import { FileDropDirective } from './framework/file-drop.directive';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDFRaD5M1zMPRKHQj5oshYLcyVa-cqq_Gw",
@@ -23,7 +24,8 @@ const firebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    KeeperNavbarComponent
+    KeeperNavbarComponent,
+    FileDropDirective
   ],
   imports: [
     BrowserModule,

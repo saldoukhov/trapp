@@ -2,3 +2,9 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
+
+.file-drop {
+  width: 15rem;
+  height: 15rem;
+  border-style: solid;
+}

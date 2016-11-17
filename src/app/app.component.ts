@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Output} from '@angular/core';
 import {AngularFire} from 'angularfire2';
 import {Translation} from './model/translation';
 import {Observable} from 'rxjs';
@@ -34,4 +34,13 @@ export class AppComponent {
       });
   }
 
+  public fileIsOver: boolean = false;
+
+  public fileOver(fileIsOver: boolean): void {
+    this.fileIsOver = fileIsOver;
+  }
+
+  public onFileDrop(file: string): void {
+    console.log(file);
+  }
 }
