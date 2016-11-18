@@ -1,0 +1,7 @@
+<div class="file-drop"
+     fileDrop
+     [ngClass]="{'file-is-over': fileIsOver}"
+     (fileOver)="fileOver($event)"
+     (onFileDrop)="onFileDrop($event)">
+  <div id="drop-label">Drop translations here</div>
+</div>

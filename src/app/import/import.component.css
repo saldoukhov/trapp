@@ -1,0 +1,13 @@
+.file-drop {
+  width: 99%;
+  height: 35rem;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#drop-label {
+  font-size: xx-large;
+  font-weight: bold;
+}
