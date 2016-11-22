@@ -11,3 +11,7 @@
   font-size: xx-large;
   font-weight: bold;
 }
+
+.import-key {
+  min-width: 40rem;
+}

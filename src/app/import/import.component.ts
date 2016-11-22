@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Translation} from '../model/translation';
+import {AngularFire} from 'angularfire2';
 
 @Component({
   selector: 'import',
@@ -7,20 +9,41 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ImportComponent implements OnInit {
 
+  private items: any;
+
   private fileIsOver: boolean = false;
 
-  constructor() {
+  constructor(public af: AngularFire) {
   }
 
   ngOnInit() {
   }
 
 
-  public fileOver(fileIsOver: boolean): void {
+  private fileOver(fileIsOver: boolean): void {
     this.fileIsOver = fileIsOver;
   }
 
-  public onFileDrop(file: string): void {
-    console.log(file);
+  private onFileDrop(file: string): void {
+    let lines = file.split('\n');
+    let trans = lines
+      .map(x => {
+          let kv = x.split('=');
+          if (kv.length < 2)
+            return null;
+          return <Translation> {
+            $key: kv[0],
+            en_US: kv[1]
+          }
+        }
+      )
+      .filter(x => x);
+    this.items = trans;
+    console.log(trans);
+  }
+
+  private importTranslations() {
+    // af.database.object('/translations')
+    this.items = null;
   }
 }
