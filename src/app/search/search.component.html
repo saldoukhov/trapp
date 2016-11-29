@@ -1,10 +1,10 @@
 <md-toolbar>
-  <md-input id="searchTextInput" placeholder="Search..." (ngModelChange)="searchTextInputChange()" [(ngModel)]="searchText"></md-input>
+  <md-input id="searchTextInput" placeholder="Search..." [(ngModel)]="searchText"></md-input>
 </md-toolbar>
 <h1 *ngIf="noPermissions">You do not have permissions to access the data.</h1>
 <md-list>
   <md-list-item
-    *ngFor="let item of items">
+    *ngFor="let item of items | filterTranslation : searchText">
     <h3
       md-line
       class="tr-key">

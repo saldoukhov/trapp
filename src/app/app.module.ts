@@ -12,6 +12,10 @@ import { SearchComponent } from './search/search.component';
 import { ImportComponent } from './import/import.component';
 import { ExportComponent } from './export/export.component';
 import { ReportsComponent } from './reports/reports.component';
+import { FilterTranslationPipe } from './search/pipes/filter-translation.pipe';
+import { NewTranslationsPipe } from './import/pipes/new-translations.pipe';
+import { ExistingTranslationsPipe } from './import/pipes/existing-translations.pipe';
+import { RemovedTranslationsPipe } from './import/pipes/removed-translations.pipe';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDFRaD5M1zMPRKHQj5oshYLcyVa-cqq_Gw",
@@ -33,7 +37,11 @@ const firebaseAuthConfig = {
     SearchComponent,
     ImportComponent,
     ExportComponent,
-    ReportsComponent
+    ReportsComponent,
+    FilterTranslationPipe,
+    NewTranslationsPipe,
+    ExistingTranslationsPipe,
+    RemovedTranslationsPipe
   ],
   imports: [
     BrowserModule,

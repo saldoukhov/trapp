@@ -9,7 +9,7 @@ import {AngularFire} from 'angularfire2';
 })
 export class ImportComponent implements OnInit {
 
-  private items: any;
+  private items: Translation[];
 
   private fileIsOver: boolean = false;
 

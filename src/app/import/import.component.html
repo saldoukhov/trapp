@@ -1,4 +1,9 @@
-<md-toolbar></md-toolbar>
+<md-toolbar>
+  <button
+    md-raised-button
+    (click)="importTranslations()">Import Translations
+  </button>
+</md-toolbar>
 <div
   *ngIf="!items"
   class="file-drop"
@@ -9,10 +14,33 @@
   <div id="drop-label">Drop translations here</div>
 </div>
 <md-list *ngIf="items">
-  <button
-    md-raised-button
-    (click)="importTranslations()">Import Translations
-  </button>
+  <md-tab-group>
+    <md-tab label="New">
+      <md-list>
+        <md-list-item *ngFor="let translation of items">
+          <h3 md-line>{{translation.$key}}</h3>
+          <p md-line>{{translation.en_US}}</p>
+        </md-list-item>
+      </md-list>
+    </md-tab>
+    <md-tab label="Existing">
+      <md-list>
+        <md-list-item *ngFor="let translation of items">
+          <h3 md-line>{{translation.$key}}</h3>
+          <p md-line>{{translation.en_US}}</p>
+        </md-list-item>
+      </md-list>
+    </md-tab>
+    <md-tab label="Removed">
+      <md-list>
+        <md-list-item *ngFor="let translation of items">
+          <h3 md-line>{{translation.$key}}</h3>
+          <p md-line>{{translation.en_US}}</p>
+        </md-list-item>
+      </md-list>
+    </md-tab>
+  </md-tab-group>
+
   <md-list-item
     *ngFor="let item of items">
     <div md-line>
