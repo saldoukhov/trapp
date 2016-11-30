@@ -15,11 +15,11 @@ export class SearchComponent implements OnInit {
 
   constructor(public translationsService: TranslationsService) {
     this.searchText = '';
-    this.translationsService.translations.subscribe(trans => this.items = trans);
+
   }
 
   ngOnInit() {
-    console.log("Object: ", this.items);
+    this.translationsService.translations.subscribe(trans => this.items = trans);
   }
 
 }

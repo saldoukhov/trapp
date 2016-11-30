@@ -35,4 +35,8 @@ export class TranslationsService {
   public getTranslations(): any{
     return this.translations;
   }
+
+  public create(key : any, value: any){
+    this.af.database.list('/translations').push({name: key, en_US: value});
+  }
 }

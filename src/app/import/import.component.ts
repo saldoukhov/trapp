@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Translation} from '../model/translation';
 import {AngularFire} from 'angularfire2';
+import {TranslationsService} from "../services/translations.service";
 
 @Component({
   selector: 'import',
@@ -13,7 +14,7 @@ export class ImportComponent implements OnInit {
 
   private fileIsOver: boolean = false;
 
-  constructor(public af: AngularFire) {
+  constructor(public translationService: TranslationsService) {
   }
 
   ngOnInit() {
@@ -39,11 +40,11 @@ export class ImportComponent implements OnInit {
       )
       .filter(x => x);
     this.items = trans;
-    console.log(trans);
   }
 
   private importTranslations() {
-    // af.database.object('/translations')
-    this.items = null;
+    for(let item of this.items){
+      this.translationService.create(item.$key, item.en_US);
+    }
   }
 }

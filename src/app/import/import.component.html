@@ -17,7 +17,7 @@
   <md-tab-group>
     <md-tab label="New">
       <md-list>
-        <md-list-item *ngFor="let translation of items">
+        <md-list-item *ngFor="let translation of items | newTranslations">
           <h3 md-line>{{translation.$key}}</h3>
           <p md-line>{{translation.en_US}}</p>
         </md-list-item>
@@ -25,29 +25,11 @@
     </md-tab>
     <md-tab label="Existing">
       <md-list>
-        <md-list-item *ngFor="let translation of items">
-          <h3 md-line>{{translation.$key}}</h3>
-          <p md-line>{{translation.en_US}}</p>
-        </md-list-item>
-      </md-list>
-    </md-tab>
-    <md-tab label="Removed">
-      <md-list>
-        <md-list-item *ngFor="let translation of items">
+        <md-list-item *ngFor="let translation of items | existingTranslations">
           <h3 md-line>{{translation.$key}}</h3>
           <p md-line>{{translation.en_US}}</p>
         </md-list-item>
       </md-list>
     </md-tab>
   </md-tab-group>
-
-  <md-list-item
-    *ngFor="let item of items">
-    <div md-line>
-      <div class="row">
-        <div class="col-xs-2">{{ item.$key }}</div>
-        <div class="col-xs-10">{{ item.en_US }}</div>
-      </div>
-    </div>
-  </md-list-item>
 </md-list>
